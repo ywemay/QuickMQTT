@@ -6,12 +6,12 @@
 WiFiClient wifiClient;
 PubSubClient client(wifiClient);
 
-void QuckMQTT::SetWiFi(char* wifi_ssid, char* wifi_pass) {
+void QuickMQTT::SetWiFi(char* wifi_ssid, char* wifi_pass) {
     _wifi_ssid = wifi_ssid;
     _wifi_pass = wifi_pass;
 }
 
-void QuckMQTT::setup(void (*fn)(char*, byte*, unsigned int)) {
+void QuickMQTT::setup(void (*fn)(char*, byte*, unsigned int)) {
     delay(10);
     WiFi.begin(_wifi_ssid, _wifi_pass);
     while (WiFi.status() != WL_CONNECTED) {
@@ -23,7 +23,7 @@ void QuckMQTT::setup(void (*fn)(char*, byte*, unsigned int)) {
     client.setCallback(fn);
 }
 
-void QuckMQTT::reconnect() {
+void QuickMQTT::reconnect() {
     while (!client.connected()) {
         if (client.connect(_client_id, _mqtt_user, _mqtt_pass)) {
             client.publish(_client_id, "online");
@@ -34,7 +34,7 @@ void QuckMQTT::reconnect() {
     }
 }
 
-void QuckMQTT::loop() {
+void QuickMQTT::loop() {
     if (!client.connected()) reconnect();
     client.loop();
 }

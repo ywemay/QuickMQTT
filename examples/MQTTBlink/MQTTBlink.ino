@@ -1,9 +1,9 @@
-#include <MQTT.h>
+#include <QuickMQTT.h>
 
 // Client ID: "Blink" - used for wifi client as well as for MQTT topic
 char* ClientID = "Blink";
 
-MQTT mqtt = MQTT(ClientID, "192.168.0.10", 1883, "username", "password");
+QuickMQTT mqtt = QuickMQTT(ClientID, "192.168.0.10", 1883, "username", "password");
 
 void callback(char* topic, byte* payload, unsigned int length) {
   payload[length] = '\0';
