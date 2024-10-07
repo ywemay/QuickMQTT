@@ -13,7 +13,7 @@ private:
 	char* _mqtt_pass;
 
 public:
-    QuickMQTT(const char* client_id, const char* mqtt_host, const int mqtt_port, const char* mqtt_user, const char* mqtt_pass)
+    QuickMQTT(char* client_id, char* mqtt_host, int mqtt_port, char* mqtt_user, char* mqtt_pass)
         : _client_id(client_id), _mqtt_host(mqtt_host), _mqtt_port(mqtt_port), _mqtt_user(mqtt_user), _mqtt_pass(mqtt_pass) {
     }
 
